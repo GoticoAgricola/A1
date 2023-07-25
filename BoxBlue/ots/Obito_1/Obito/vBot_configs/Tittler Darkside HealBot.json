@@ -1,0 +1,73 @@
+{
+  "currentHealBotProfile": 1,
+  "healbot": [
+    {
+      "Conditions": true,
+      "Visible": true,
+      "spellTable": [
+        {
+          "enabled": true,
+          "value": 99,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "Big Regeneration",
+          "index": 1,
+          "cost": 20
+        }
+      ],
+      "enabled": true,
+      "name": "Profile #1",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "Conditions": true,
+      "Visible": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #2",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "Conditions": true,
+      "Visible": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #3",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "Conditions": true,
+      "Visible": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #4",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "Conditions": true,
+      "Visible": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #5",
+      "itemTable": [
+
+      ]
+    }
+  ]
+}

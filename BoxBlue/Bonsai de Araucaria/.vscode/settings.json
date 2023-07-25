@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "C-COMENTADO.C": "cpp",
+        "K.C": "cpp"
+    },
+    "js/ts.implicitProjectConfig.checkJs": false,
+    "launch": {
+
+        "configurations": [],
+        "compounds": []
+    },
+    "json.schemas": [
+
+    ],
+    "vsicons.presets.jsonOfficial": false
+}

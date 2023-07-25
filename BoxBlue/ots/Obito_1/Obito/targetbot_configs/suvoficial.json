@@ -1,0 +1,39 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "everyItem": false,
+    "containers": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100
+  },
+  "targeting": [
+    {
+      "lure": false,
+      "regex": "^chakra four tails$",
+      "name": "Chakra Four Tails",
+      "anchor": false,
+      "chase": false,
+      "avoidAttacks": false,
+      "keepDistance": false,
+      "lureCavebot": false,
+      "lureMin": 1,
+      "lureCount": 1,
+      "maxDistance": 10,
+      "dontLoot": false,
+      "anchorRange": 3,
+      "keepDistanceRange": 1,
+      "lureDelay": 250,
+      "dynamicLure": false,
+      "faceMonster": false,
+      "dynamicLureDelay": false,
+      "diamondArrows": false,
+      "priority": 1,
+      "lureMax": 1,
+      "danger": 1
+    }
+  ]
+}

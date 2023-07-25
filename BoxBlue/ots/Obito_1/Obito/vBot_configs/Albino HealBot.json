@@ -1,0 +1,91 @@
+{
+  "currentHealBotProfile": 1,
+  "healbot": [
+    {
+      "spellTable": [
+        {
+          "enabled": true,
+          "index": 1,
+          "origin": "HP%",
+          "spell": "shousen no jutsu",
+          "sign": "<",
+          "value": 99,
+          "cost": 20
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "origin": "HP%",
+          "spell": "Big Regeneration",
+          "sign": "<",
+          "value": 99,
+          "cost": 20
+        },
+        {
+          "enabled": false,
+          "index": 3,
+          "origin": "HP%",
+          "spell": "chiyute no jutsu \"albino",
+          "sign": "<",
+          "value": 99,
+          "cost": 20
+        }
+      ],
+      "Visible": true,
+      "Conditions": true,
+      "enabled": false,
+      "name": "Profile #1",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "spellTable": [
+
+      ],
+      "Visible": true,
+      "Conditions": true,
+      "enabled": false,
+      "name": "Profile #2",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "spellTable": [
+
+      ],
+      "Visible": true,
+      "Conditions": true,
+      "enabled": false,
+      "name": "Profile #3",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "spellTable": [
+
+      ],
+      "Visible": true,
+      "Conditions": true,
+      "enabled": false,
+      "name": "Profile #4",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "spellTable": [
+
+      ],
+      "Visible": true,
+      "Conditions": true,
+      "enabled": false,
+      "name": "Profile #5",
+      "itemTable": [
+
+      ]
+    }
+  ]
+}

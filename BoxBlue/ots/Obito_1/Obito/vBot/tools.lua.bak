@@ -1,0 +1,58 @@
+-- tools tab
+setDefaultTab("Tools")
+
+
+
+local moneyIds = {3031, 3035} -- gold coin, platinium coin
+macro(1000, "Change Gold", function()
+  local containers = g_game.getContainers()
+  for index, container in pairs(containers) do
+    if not container.lootContainer then -- ignore monster containers
+      for i, item in ipairs(container:getItems()) do
+        if item:getCount() == 100 then
+          for m, moneyId in ipairs(moneyIds) do
+            if item:getId() == moneyId then
+              return g_game.use(item)            
+            end
+          end
+        end
+      end
+    end
+  end
+end)
+
+UI.Separator()
+
+-- config
+
+local keyUp = "PageUp"
+local keyDown = "PageDown"
+
+
+-- script
+
+local lockedLevel = pos().z
+local m = macro(1000, "Spy Level PGUP/PGDOWN", function() end)
+
+onPlayerPositionChange(function(newPos, oldPos)
+    if oldPos.z ~= newPos.z then
+        lockedLevel = pos().z
+        modules.game_interface.getMapPanel():unlockVisibleFloor()
+    end
+end)
+
+onKeyPress(function(keys)
+    if m.isOn() then
+        if keys == keyDown then
+            lockedLevel = lockedLevel + 1
+            modules.game_interface.getMapPanel():lockVisibleFloor(lockedLevel)
+        elseif keys == keyUp then
+            lockedLevel = lockedLevel - 1
+            modules.game_interface.getMapPanel():lockVisibleFloor(lockedLevel)
+        end
+    end
+end)
+UI.Separator()
+
+  
+  

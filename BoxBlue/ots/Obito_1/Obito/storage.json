@@ -1,0 +1,1311 @@
+{
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "specialDeposit": {
+    "items": [
+
+    ]
+  },
+  "ingame_hotkeys": "UI.Label(\"-- BUFF--\"):setColor('pink')\nstairMacro =\nmacro(5000, \"Double Buff\", function() \nsay(\"Sage Mode \")\ndelay(2000)\nsay(\"Senjutsu Kai\") \ndelay (2500)\nsay (\"biju mode\")\nend)\n-----------------------------------------------------------------------------\nUI.Separator()\n-----------------------------------------------------------------------------\nUI.Label(\"-- COMBO --\"):setColor('orange')\n--------------------\n\nstairMacro = \nmacro(1, \"COMBO HASHIRAMA\", function()\n if g_game.isAttacking() then\n say('Mokuton Jubaku Eiso ')\n say('Mokuton Jukai Kotan ') \n say('Mokuton Daijurin no Jutsu') \n say('Mokuton Mokuryu no Jutsu')\n say('Doton Doryuso')\nend \nend)\n\nmacro(100, \"AREA FULL\", function()\n say(' Mokuton Kajukai Korin ')\nend)\n------------------\n\nlocal healingSpell = 'Kawarimi no jutsu' local hpPercent = 50 macro(50, \"..::CHAKRA DEF:..\", function() if (hppercent() <= hpPercent) then say(healingSpell) end end)\n UI.Separator()\n\n----------------------------------------------------------------\nUI.Label(\"-- PVP --\"):setColor('green')\n------------------------------------------------------------------\n--Jump Up/Down\nlocal usingWASD = modules.game_walking.wsadWalking\nlocal walkDir\nonKeyDown(function(keys)\n  usingWASD = modules.game_walking.wsadWalking\n  if usingWASD then\n    if keys == \"D\" or keys == \"A\" or keys == \"S\" or keys == \"W\" then\n      walkDir = keys\n    end\n  else\n    if keys == \"Up\" or keys == \"Right\" or keys == \"Down\" or keys == \"Left\" then\n      walkDir = keys\n    end\n  end\nend)\n\njump = macro(1, \"Jump\", ('CTRL+4'), function()\n  local playerPos = pos()\n  local levitateTile\n  if walkDir == \"W\" or walkDir == \"Up\" then -- north\n    playerPos.y = playerPos.y - 1\n    turn(0)\n    levitateTile = g_map.getTile(playerPos)\n  elseif walkDir == \"D\" or walkDir == \"Right\" then -- east\n    playerPos.x = playerPos.x + 1\n    turn(1)\n    levitateTile = g_map.getTile(playerPos)\n  elseif walkDir == \"S\" or walkDir == \"Down\" then -- south\n    playerPos.y = playerPos.y + 1\n    turn(2)\n    levitateTile = g_map.getTile(playerPos)\n  elseif walkDir == \"A\" or walkDir == \"Left\" then -- west\n    playerPos.x = playerPos.x - 1\n    turn(3)\n    levitateTile = g_map.getTile(playerPos)\n  end\n\n  if levitateTile and not levitateTile:isWalkable() then\n    if levitateTile:getGround() then\n      say('jump \"up')\n      walkDir = nil\n    else\n      say('jump \"down')\n      walkDir = nil\n    end\n  end\n  walkDir = nil\n  end)\n\n\n\nfor _, scripts in ipairs({storage.ingame_macros, storage.ingame_hotkeys}) do\n  if type(scripts) == \"string\" and scripts:len() > 3 then\n    local status, result = pcall(function()\n      assert(load(scripts, \"ingame_editor\"))()\n    end)\n    if not status then \n      error(\"Ingame edior error:\\n\" .. result)\n    end\n  end\nend\n\n---------------------------------------\n\nfriendList = {'zKilleR', 'Jason'}\n\nenemyList = {'Deki', 'Rushshow, Celzin'}\n\n\nfor index, value in ipairs(enemyList) do\n    enemyList[value:lower():trim()] = true\n    enemyList[index] = nil\nend\n\n\nfor index, value in ipairs(friendList) do\n    friendList[value:lower():trim()] = true\n    friendList[index] = nil\nend\n\nactualTarget = actualTarget or function()\n    local target = g_game.getAttackingCreature or g_game.getAttackinggCreature\n    return target()\nend\n\nmacro(1, 'Enemy', function()\n    local pos = pos()\n    local focusTarget\n    for _, creature in ipairs(getSpectators()) do\n        local specHp = creature:getHealthPercent()\n        local specPos = creature:getPosition()\n        local specName = creature:getName():lower()\n        if creature:isPlayer() and specHp and specHp > 0 then\n            if (not friendList[specName] and creature:getEmblem() ~= 1 and creature:getShield() < 3 and creature ~= player) or enemyList[specName] then\n                if g_map.isSightClear(specPos, pos) then\n                    if not focusTarget or actualTargetHp > specHp or (actualTargetHp == specHp and getDistanceBetween(pos, actualTargetPos) > getDistanceBetween(specPos, pos)) then\n                        focusTarget, actualTargetPos, actualTargetHp = creature, specPos, specHp\n                    end\n                end\n            end\n        end\n    end\n    if focusTarget and actualTarget() ~= focusTarget then\n    modules.game_interface.processMouseAction(nil, 2, actualTargetPos, nil, focusTarget, focusTarget)\n    end\nend)\n\nmacro(100, \"ATK TARGET\", function()\n  if g_game.isAttacking() then\n    oldTarget = g_game.getAttackingCreature()\n  end\n  if oldTarget and oldTarget:getPosition() then\n    if not g_game.isAttacking() and getDistanceBetween(pos(), oldTarget:getPosition()) <= 8 then\n      if oldTarget:getPosition().z == posz() then\n        g_game.attack(oldTarget)\n      end\n    end\n  end\nend)\n\n---------------------------------------\n\nUI.Separator()\n----------\nUI.Label(\"-- UPAR ML --\"):setColor('pink')\n\nstairMacro =\nmacro(10000, \"UP ML\", function()   say('chakra down') end)\n\n-----------------------------------------------------------------\nUI.Separator()\n--------------------------------------------------------------------------\nlocal wsadWalking = modules.game_walking.wsadWalking\nlocal doorsIds = {1666,5120,5129,6264,6262,6207,6252,6249,6195,1629,11347,1648,11115,5102}\n\nfunction checkForDoors(pos)\n  local tile = g_map.getTile(pos)\n  if tile then\n    local useThing = tile:getTopUseThing()\n    if useThing and table.find(doorsIds, useThing:getId()) then\n      g_game.use(useThing)\n    end\n  end\nend\n\nonKeyPress(function(keys)\n  local pos = player:getPosition()\n  if (wsadWalking and keys == 'W') or keys == 'Up' then\n    pos.y = pos.y - 1\n  elseif (wsadWalking and keys == 'S') or keys == 'Down' then\n    pos.y = pos.y + 1\n  elseif (wsadWalking and keys == 'A') or keys == 'Left' then\n    pos.x = pos.x - 1\n  elseif (wsadWalking and keys == 'D') or keys == 'Right' then\n    pos.x = pos.x + 1\n  end\n  checkForDoors(pos)\nend)\n\n--------\n\nUI.Label(\"-- Funçoes --\"):setColor('yellow')\n--[[Esconder Magias Laranjas da tela]]--\nTH = macro(100, \"Esconder msg laranja\", function() end)\nonStaticText(function(thing, text)\n    if TH.isOff() then return end\n    if not text:find('says:') then\n        g_map.cleanTexts()\n    end\nend)\n\n\n--[[esconder MAGIAS(SPRITES)]]--\nsprh = macro(100, \"Esconder sprite\", function() end)\nonAddThing(function(tile, thing)\n    if sprh.isOff() then return end\n    if thing:isEffect() then\n        thing:hide()\n    end\nend)\n------\n\n\nonKeyPress(function(keys)\n if keys == '112' then\n  parar = now + 200\n  say('chakra defense')\n elseif keys == '113' then\n  parar = now + 200\n  say('Mokuton Jukai Trap')\n elseif keys == '114' then\n  parar = now + 200\n  say('Jukai Meikai Koutan')\n elseif keys == '115' then\n  parar = now + 200\n  say('Jubaku Jukai Mokudrunk')\n elseif keys == '116' then\n  parar = now + 200\n  say('Mokuton Bunshin')\n elseif keys == '117' then\n   parar = now + 200\n   say('Kai')\n elseif keys == '118' then\n   parar = now + 200\n   say('jump \"up')\nelseif keys == '119' then\n   parar = now + 200\n   say('jump \"down')\n end\nend)\n\nmacro(100, \"Botoes laterais\", function()\nif g_mouse.isPressed(7) then\n     say(\"jump down\")\n   end\nif g_mouse.isPressed(8) then\n     say(\"jump up\")\n   end\nend)\n\nmacro(100, \"Obito\", function()\n if g_game.isAttacking() then\n say('Katon bakufu ranbu')\n say('Katon Rosenka No Jutsu')\n say('Daisorin')\n say('Katon:Hosenka Tsumaberi')\n say('Mokuton Sashiki no Jutsu')\nend\nend)",
+  "autoSpellTrain2": "powerdown",
+  "hasteSpell": "chakra feet",
+  "check": 1,
+  "antiParalyze": "kai",
+  "autoHealthItemPanel2": {
+    "max": 40,
+    "item": 16338,
+    "min": 0,
+    "enabled": false
+  },
+  "autoParty": {
+    "onMove": true,
+    "enabled": false,
+    "leaderName": "",
+    "autoPartyList": [
+
+    ]
+  },
+  "Jutsu_1": "yantou chakra mesu, kyodaija tay",
+  "advancedFriendHealer": {
+    "itemHeal": false,
+    "healEd": false,
+    "healEk": false,
+    "healRp": false,
+    "exuraSio": false,
+    "healMs": false,
+    "minMana": 41,
+    "exuraGranSio": false,
+    "id": 107,
+    "customSpell": false,
+    "minFriendHp": 100,
+    "enabled": false,
+    "distance": 8,
+    "exuraMasRes": false,
+    "customSpellName": ""
+  },
+  "jumps": {
+    "622,1804,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "542,1931,6": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "2073,2042,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "621,1817,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "2073,2035,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "544,1943,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "534,1928,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "621,1821,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "269,1566,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "545,1938,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "622,1817,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "267,1567,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "2112,2065,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 3
+    },
+    "265,1567,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "263,1568,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "269,1564,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "537,1926,5": {
+      "jumpTo": "jump \"down",
+      "direction": 3
+    },
+    "620,1830,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "2046,2066,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "2547,1778,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "268,1566,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "622,1811,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "2046,2065,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "5,4,10": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "2049,2056,7": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "534,1924,7": {
+      "jumpTo": "jump \"up",
+      "direction": 2
+    },
+    "2019,715,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "534,1925,6": {
+      "jumpTo": "jump \"down",
+      "direction": 0
+    },
+    "2112,2062,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 3
+    },
+    "1027,1594,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "1401,1912,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "1028,1595,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "839,1788,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "1026,1594,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "2112,2063,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 3
+    },
+    "2066,2076,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "1953,717,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 1
+    },
+    "2455,1808,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "2047,2066,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "620,1829,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "2047,2065,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "2052,2045,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "2019,716,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "3407,1060,5": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 1
+    },
+    "1954,717,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 3
+    },
+    "269,1567,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "545,1943,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "543,1930,5": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "542,1930,5": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "536,1927,6": {
+      "jumpTo": "jump \"up",
+      "direction": 1
+    },
+    "834,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "2065,2076,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "835,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "2460,1804,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "836,1788,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "837,1788,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "2074,2042,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "2097,2057,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "269,1563,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "2097,2058,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "268,1563,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "1400,1912,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "840,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "263,1567,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "2548,1778,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "1028,1594,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "542,1949,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "268,1567,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "2111,2065,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 1
+    },
+    "267,1568,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "266,1568,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "1027,1595,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "264,1568,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "1050,1593,5": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "1051,1593,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "2061,2330,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "269,1565,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "2455,1807,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "2045,2071,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "621,1804,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "1026,1595,6": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "541,1931,6": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "2053,2045,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "2049,2061,7": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "2074,2035,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 3
+    },
+    "2061,2329,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 2
+    },
+    "1948,717,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 1
+    },
+    "2111,2063,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 1
+    },
+    "545,1948,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "545,1936,7": {
+      "jumpTo": "jump \"up",
+      "direction": 3
+    },
+    "837,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "836,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "835,1788,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "834,1788,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "2053,2046,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    },
+    "2044,2071,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 1
+    },
+    "839,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "838,1789,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "268,1564,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "266,1567,6": {
+      "jumpTo": "jump \"down",
+      "direction": 2
+    },
+    "544,1938,6": {
+      "jumpTo": "jump \"down",
+      "direction": 1
+    },
+    "534,1929,7": {
+      "jumpTo": "jump \"up",
+      "direction": 0
+    },
+    "1949,717,6": {
+      "jumpTo": "Jump \"down\"",
+      "direction": 3
+    },
+    "2052,2046,7": {
+      "jumpTo": "Jump \"up\"",
+      "direction": 0
+    }
+  },
+  "autoTradeMessage": "",
+  "foodItems": [
+    {
+      "id": 3582,
+      "count": 1
+    },
+    {
+      "id": 3577,
+      "count": 1
+    },
+    {
+      "id": 3607,
+      "count": 1
+    },
+    {
+      "id": 3585,
+      "count": 1
+    },
+    {
+      "id": 3592,
+      "count": 1
+    },
+    {
+      "id": 3600,
+      "count": 1
+    },
+    {
+      "id": 3601,
+      "count": 1
+    },
+    {
+      "id": 3725,
+      "count": 78
+    }
+  ],
+  "autoHealthItemPanel1": {
+    "max": 80,
+    "item": 16338,
+    "min": 0,
+    "enabled": true
+  },
+  "cooldowns": {
+    "Mokuton Daijurin Shichuro ": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 120000,
+      "activeCooldown": 5000,
+      "text": "Mugen"
+    },
+    "byakugo no jutsu": {
+      "position": {
+        "y": 50,
+        "x": -160
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 90000,
+      "activeCooldown": 30000,
+      "text": "Buff"
+    },
+    "jukai meikai koutan": {
+      "position": {
+        "y": -50,
+        "x": -150
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 60000,
+      "activeCooldown": 4000,
+      "text": "Trap AREA"
+    },
+    "chakra defense": {
+      "position": {
+        "y": -120,
+        "x": -40
+      },
+      "totalTime": 154704721,
+      "activeTime": 154654721,
+      "totalCooldown": 60000,
+      "activeCooldown": 10000,
+      "text": "Chakra"
+    },
+    "jubaku jukai mokudrunk": {
+      "position": {
+        "y": -30,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 60000,
+      "activeCooldown": 20000,
+      "text": "DEBUFF"
+    },
+    "bijuu furie": {
+      "position": {
+        "y": 100,
+        "x": -460
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 175000,
+      "activeCooldown": 30000,
+      "text": "Bijuu"
+    },
+    "futon taifuikka": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 29166912,
+      "activeTime": 29109912,
+      "totalCooldown": 60000,
+      "activeCooldown": 3000,
+      "text": "MUTED"
+    },
+    "kokuangyou no jutsu": {
+      "position": {
+        "y": 50,
+        "x": -150
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 60000,
+      "activeCooldown": 7000,
+      "text": "Mundo"
+    },
+    "mokuton shichuro": {
+      "position": {
+        "y": 160,
+        "x": -460
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 20000,
+      "activeCooldown": 3000,
+      "text": "ShichuroTarget"
+    },
+    "moku shouheki no jutsu": {
+      "position": {
+        "y": 120,
+        "x": -460
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 90000,
+      "activeCooldown": 3000,
+      "text": "MokuTarget"
+    },
+    "hiraishin": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 3400,
+      "activeCooldown": 0,
+      "text": "Kunai"
+    },
+    "sangosho": {
+      "position": {
+        "y": 50,
+        "x": 84
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 45000,
+      "activeCooldown": 5000,
+      "text": "Trap"
+    },
+    "mokuton daijurin shichuro": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 5000,
+      "activeCooldown": 0,
+      "text": "Casulo"
+    },
+    "mokuton hijutsu jukai koutan": {
+      "position": {
+        "y": 140,
+        "x": -460
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 40000,
+      "activeCooldown": 6000,
+      "text": "HijutsuArea"
+    },
+    "mugen tsukuyomi infinity": {
+      "position": {
+        "y": 180,
+        "x": -460
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 120000,
+      "activeCooldown": 5000,
+      "text": "Mugen"
+    },
+    "izanagi": {
+      "position": {
+        "y": -30,
+        "x": 80
+      },
+      "totalTime": 57413428.1185,
+      "activeTime": 57329428.1185,
+      "activeCooldown": 15000,
+      "totalCooldown": 99000,
+      "text": "Izanagi"
+    },
+    "suiton mizukagami no jutsu": {
+      "position": {
+        "y": -120,
+        "x": -40
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 30000,
+      "activeCooldown": 4000,
+      "text": "Chakra"
+    },
+    "riku": {
+      "position": {
+        "y": 170,
+        "x": -470
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 3600000,
+      "activeCooldown": 1000,
+      "text": "Rikudou"
+    },
+    "kirigakure no jutsu": {
+      "position": {
+        "y": -50,
+        "x": -150
+      },
+      "totalTime": 29115578,
+      "activeTime": 29058578,
+      "totalCooldown": 60000,
+      "activeCooldown": 4000,
+      "text": "Invisible"
+    },
+    "kawarimi no jutsu": {
+      "position": {
+        "y": 80,
+        "x": -460
+      },
+      "totalTime": 5451028.4443,
+      "activeTime": 5402028.4443,
+      "totalCooldown": 59000,
+      "activeCooldown": 10000,
+      "text": "Kawarimi"
+    },
+    "suiton:prision ": {
+      "position": {
+        "y": 50,
+        "x": 70
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 20000,
+      "activeCooldown": 3000,
+      "text": "Trap"
+    },
+    "Mokuton Daijurin Shichuro": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 120000,
+      "activeCooldown": 5000,
+      "text": "Casulo"
+    },
+    "Kawarimi no jutsu": {
+      "position": {
+        "y": -50,
+        "x": 80
+      },
+      "totalTime": 0,
+      "activeCooldown": 10000,
+      "activeTime": 0,
+      "text": "Kawarimi",
+      "totalCooldown": 60000
+    },
+    "suiton:prision": {
+      "position": {
+        "y": 50,
+        "x": 70
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 20000,
+      "activeCooldown": 3000,
+      "text": "Trap"
+    },
+    "bijuu": {
+      "position": {
+        "y": 150,
+        "x": -470
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 3600000,
+      "activeCooldown": 1000,
+      "text": "Cave Bijuu"
+    },
+    "mokuton jukai trap": {
+      "position": {
+        "y": -30,
+        "x": -150
+      },
+      "totalTime": 0,
+      "activeTime": 0,
+      "totalCooldown": 30000,
+      "activeCooldown": 4000,
+      "text": "Trap Target"
+    }
+  },
+  "BotServerChannel": "9882565450085",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "shootLeader": "",
+    "serverTriggers": true,
+    "serverLeaderTarget": false,
+    "item": 3155,
+    "commandsEnabled": true,
+    "attack": "",
+    "onSayEnabled": false,
+    "sayLeader": "",
+    "spell": "",
+    "onShootEnabled": false,
+    "attackItemToggle": false,
+    "followLeaderEnabled": false,
+    "serverEnabled": false,
+    "sayPhrase": "",
+    "onCastEnabled": false,
+    "serverLeader": "",
+    "enabled": false,
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "timers": false,
+    "bless": false,
+    "machete": 9596,
+    "holdMwall": false,
+    "checkPlayer": false,
+    "looting": 40,
+    "suppliesControl": false,
+    "useAll": "space",
+    "lootLast": false,
+    "shovel": 9596,
+    "autoOpenDoors": false,
+    "stake": false,
+    "scythe": 9596,
+    "oberon": false,
+    "antiKick": false,
+    "title": false,
+    "talkDelay": 1000,
+    "killUnder": 30,
+    "reUse": false,
+    "huntRoutes": 50,
+    "rope": 9596
+  },
+  "manaTrain": {
+    "max": 100,
+    "title": "CP%",
+    "on": false,
+    "min": 25,
+    "text": "chakra down"
+  },
+  "autoEquip": [
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "dropper": {
+    "useItems": [
+      {
+        "id": 21203,
+        "count": 1
+      },
+      {
+        "id": 14758,
+        "count": 1
+      }
+    ],
+    "trashItems": [
+      {
+        "id": 283,
+        "count": 1
+      },
+      {
+        "id": 284,
+        "count": 1
+      },
+      {
+        "id": 285,
+        "count": 1
+      }
+    ],
+    "enabled": false,
+    "capItems": [
+      {
+        "id": 21175,
+        "count": 1
+      }
+    ]
+  },
+  "healing2": {
+    "max": 26,
+    "title": "HP%",
+    "on": true,
+    "min": 0,
+    "text": "Bijuu Furie"
+  },
+  "bestHeal": 0,
+  "_macros": {
+    "": false,
+    "COMBO MADARA 2": true,
+    "Fuga Limbo 100%": false,
+    "Buff": false,
+    "Double Buff": false,
+    "COMBO kimi": false,
+    "PUXE MUNDO": false,
+    "haste": false,
+    "% TRAP TARGET 2": true,
+    "COMBO MADARA SEM RETA": false,
+    "Summon Pains": false,
+    "Kawarimi 26%": true,
+    "Obito": true,
+    "COMBO MADARA MUGEN": false,
+    "ativar anti paralyze": false,
+    "Bijuu 36%": true,
+    "Cooldown print": false,
+    "Clones": false,
+    " Powerdown": false,
+    "Kuchyose 100%": false,
+    "chikushodou shin tensei": true,
+    "MUGEN FUGA 20%": true,
+    "Follow Change": false,
+    "46% TRAP TARGET 1": true,
+    "..::CHAKRA DEF:..": false,
+    "COMBO HASHIRAMA 2 ": false,
+    "Bijuu 26%": true,
+    "MUNDO 26%": false,
+    "Summon": false,
+    "Sense Target": false,
+    "COMBO HASHIRAMA ": false,
+    "Izanagi 20%": true,
+    "Spy Level": false,
+    "COMBO HASHIRAMA TRAP ": true,
+    "COMBO MADARA ": false,
+    "..::Combo TRAP::..": false,
+    "Pot HP 60%": false,
+    "Dance": false,
+    "Follow": false,
+    "COMBO MADARA": false,
+    "MUGEN 46%": false,
+    "MUGEN 36%": true,
+    "COMBO MADARA AREA": false,
+    "% ATTACK": true,
+    "KAWARIMI 18%": false,
+    "Pot HP 40%": true,
+    "GEDoU": false,
+    "COMBO HASHIRAMA 2": false,
+    "..::Combo::..": false,
+    "COMBO kimi TRAP": false,
+    "Time Spell": true,
+    "Esconder msg laranja": false,
+    "BIJUU 26%": true,
+    "Combo Jutsus": false,
+    "AntiRS & Msg": false,
+    "Stamina Refill": true,
+    "Change Gold": false,
+    "Stack": false,
+    "BIJUU 36%": false,
+    "Fuga 25%": true,
+    "BUFF HEAL 80%": true,
+    "AREA FULL": false,
+    "UP ML": false,
+    "Botoes laterais": true,
+    "Turn by Ryan": false,
+    "Mobs": false,
+    "% TRAP TARGET": false,
+    "Anti Kick": true,
+    "Send message on trade": false,
+    "Auto Follow Friend": false,
+    "Auto Targetar Ultimo alvo": false,
+    "Izanagi 26%": false,
+    "Auto-Escadas": false,
+    "COMBO TOBIRAMA TRAP ": false,
+    "Auto Marca Jump": false,
+    "Kawarimi 50%": true,
+    "COMBO MADARA RETA": false,
+    "Wave Turn": false,
+    "Spy Level PGUP/PGDOWN": false,
+    "% TRAP TARGET 1": true,
+    "Pot HP 80% PVP": false,
+    "Trade Seller Msg": false,
+    "% MUGEN": false,
+    "Auto Pot Guild HP < 90%": true,
+    "COMBO": false,
+    "Jump": false,
+    "Bijuu 20%": false,
+    "46% TRAP MONSTER": false,
+    "BUFF HEAL 70%": true,
+    "AttackFollow": false,
+    "Keep Target": true,
+    "Limbo": false,
+    "Auto-Escadas 'Espaco' ": false,
+    "UP CHAKRA": false,
+    "Potion Alarm": false,
+    "COMBO SASUKE  2": false,
+    "Eat Food": false,
+    "kawarimi": true,
+    "COMBO HASHIRAMA": false,
+    "Kawarimi 17%": true,
+    "Combo Heal": false,
+    "BUFF": true,
+    "Enemy": false,
+    "Izanagi 36%": true,
+    "Sempre Agrupar Gold": true,
+    "Kawarimi 70%": false,
+    "Ativar Jutsu Correr": false,
+    "Monster HP %": false,
+    "Pot Chakra 20%": false,
+    " LIMBo 100%": false,
+    "Esconder sprite": false,
+    "Double Buff (Dark_2)": false,
+    "Madara PVP": false,
+    "Rikudou": false,
+    "Tensei 30%": true,
+    "COMBO TOBIRAMA ": false,
+    "TRAP ": false,
+    "Summon Gedou": false,
+    "COMBO UP": true,
+    "Jump 'F'": false,
+    "COMBO MADARA FULL RETA ": true,
+    "% TRAP MONSTER": false,
+    "28% TRAP AREA": false,
+    "COMBO MADARA TRAP": false,
+    "Fuga Limbo 36%": true,
+    "COMBO TOBIRAMA": false,
+    "ATK TARGET": false,
+    "Exchange money": false,
+    "Kekkei Genkai": false,
+    "Auto Cast Spell": false,
+    "Enable": false,
+    "MUGEN FUGA 26%": true,
+    "Tensei 40%": true,
+    "Auto Target/ESC Cancel": false,
+    "Kuchyose": false,
+    "COMBO YAGURA": false,
+    "MUGEN 40%": true,
+    "Kunai": false,
+    "RainbowOutfit": false,
+    "COMBO HASHIRAMA SEM 170": false,
+    "Auto Pot Guild HP < 60%": false,
+    "CASULO 26%": true,
+    "Hold Target": false,
+    "COMBO MADARA 2 ": false,
+    "COMBO SASUKE": false
+  },
+  "tcLastExiva": {
+    "timer": 5,
+    "name": ""
+  },
+  "followLeader": "Puta Do Sasuke",
+  "bestHit": 0,
+  "alarms": {
+    "playerDetected": true,
+    "privateMessage": false,
+    "playerDetectedLogout": false,
+    "creatureDetected": false,
+    "healthBelow": false,
+    "playerAttack": false,
+    "manaBelow": false,
+    "ignoreFriends": true,
+    "bossName": "son goku",
+    "messageText": "",
+    "manaValue": 100,
+    "enabled": false,
+    "warnBoss": false,
+    "healthValue": 100
+  },
+  "_icons": {
+    "Jump": {
+      "y": 0.75789473684211,
+      "enabled": false,
+      "x": 0.35106382978723
+    },
+    "Pot Guild": {
+      "y": 0.76390977443609,
+      "enabled": false,
+      "x": 0.24468085106383
+    },
+    "Auto-Escadas 'Espaco'": {
+      "y": 0.76273291925466,
+      "enabled": false,
+      "x": 0.39870967741935
+    },
+    "AttackFollow": {
+      "y": 0.7593984962406,
+      "enabled": false,
+      "x": 0.74012158054711
+    },
+    "Stack": {
+      "y": 0.067669172932331,
+      "enabled": false,
+      "x": 0.15881458966565
+    },
+    "COMBO TOBIRAMA": {
+      "y": 0.76240601503759,
+      "enabled": false,
+      "x": 0.48860182370821
+    },
+    "Up Mana": {
+      "y": 0.10977443609023,
+      "enabled": false,
+      "x": 0.21656534954407
+    },
+    "PUXE MUNDO": {
+      "y": 0.41052631578947,
+      "enabled": false,
+      "x": 0.1580547112462
+    },
+    "BUFF": {
+      "y": 0.64661654135338,
+      "enabled": false,
+      "x": 0.1580547112462
+    },
+    "Kunai": {
+      "y": 0.76390977443609,
+      "enabled": false,
+      "x": 0.62234042553191
+    },
+    "Combo": {
+      "y": 0.05,
+      "enabled": true,
+      "x": 0.01
+    },
+    "Pot": {
+      "y": 0.7593984962406,
+      "enabled": false,
+      "x": 0.67933130699088
+    },
+    "Stack'": {
+      "y": 0.76240601503759,
+      "enabled": false,
+      "x": 0.29255319148936
+    },
+    "Escada": {
+      "y": 0.17293233082707,
+      "enabled": false,
+      "x": 0.15881458966565
+    },
+    "Up Rest": {
+      "y": 0.10977443609023,
+      "enabled": false,
+      "x": 0.15653495440729
+    },
+    "Sense": {
+      "y": 0.05,
+      "enabled": false,
+      "x": 0.01
+    },
+    "MUNDO": {
+      "y": 0.52932330827068,
+      "enabled": false,
+      "x": 0.1580547112462
+    },
+    "testi": {
+      "y": 0.42556390977444,
+      "enabled": false,
+      "x": 0.68313069908815
+    },
+    "TRAP": {
+      "y": 0.76240601503759,
+      "enabled": false,
+      "x": 0.55927051671733
+    },
+    "Clones": {
+      "y": 0.7609022556391,
+      "enabled": false,
+      "x": 0.80015197568389
+    }
+  },
+  "clearing": false,
+  "autofollow": {
+    "player": "puta do sasuke"
+  },
+  "_configs": {
+    "targetbot_configs": {
+      "selected": "White_Samurai_Master",
+      "enabled": false
+    },
+    "cavebot_configs": {
+      "selected": "Cursed_Samurai_Kuni_Village",
+      "enabled": false
+    }
+  },
+  "healing1": {
+    "max": 36,
+    "title": "HP%",
+    "on": true,
+    "min": 0,
+    "text": "Mugen Tsukuyomi Infinity"
+  },
+  "healing4": {
+    "max": 50,
+    "title": "HP%",
+    "on": true,
+    "min": 0,
+    "text": "Izanagi"
+  },
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "autoHealthPanel1": {
+    "max": 99,
+    "item": 266,
+    "enabled": true,
+    "min": 20,
+    "text": "Big Regeneration"
+  },
+  "pushmax": {
+    "pushMaxRuneId": 3188,
+    "mwallBlockId": 2128,
+    "pushMaxKey": "PageUp",
+    "enabled": false,
+    "pushDelay": 1060
+  },
+  "superDash": false,
+  "autoSpellTrain": "powerdown",
+  "autoManaItemPanel1": {
+    "max": 60,
+    "item": 16338,
+    "min": 0,
+    "enabled": false
+  },
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "groupMembers": false,
+    "friendList": [
+
+    ],
+    "highlight": false,
+    "blackList": [
+
+    ],
+    "marks": false
+  },
+  "Sense": false,
+  "renameContainers": {
+    "purse": true,
+    "enabled": false,
+    "list": [
+      {
+        "items": [
+          3081,
+          3048
+        ],
+        "value": "Main Backpack",
+        "item": 9601,
+        "min": false,
+        "enabled": true
+      },
+      {
+        "items": [
+          3161,
+          3180
+        ],
+        "value": "Runes",
+        "item": 2866,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+          3031,
+          3035,
+          3043
+        ],
+        "value": "Money",
+        "item": 2871,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+
+        ],
+        "value": "Purse",
+        "item": 23396,
+        "min": true,
+        "enabled": true
+      }
+    ],
+    "all": true
+  },
+  "RangeJutsu_1": "10, 10, 10, 10, 10",
+  "healing3": {
+    "max": 30,
+    "title": "HP%",
+    "on": true,
+    "min": 0,
+    "text": "Kamui"
+  }
+}

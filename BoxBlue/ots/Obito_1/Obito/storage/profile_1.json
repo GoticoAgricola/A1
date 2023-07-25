@@ -1,0 +1,2203 @@
+{
+  "clearing": false,
+  "superDash": true,
+  "Sense": false,
+  "bestHeal": 0,
+  "_configs": {
+    "targetbot_configs": {
+      "selected": "config_name",
+      "enabled": true
+    },
+    "cavebot_configs": {
+      "selected": "SNAKEE",
+      "enabled": true
+    }
+  },
+  "alarms": {
+    "warnBoss": false,
+    "privateMessage": false,
+    "messageText": "",
+    "healthValue": 81,
+    "ignoreFriends": false,
+    "playerAttack": false,
+    "creatureDetected": false,
+    "bossName": "[B]",
+    "warnMessage": false,
+    "enabled": false,
+    "playerDetectedLogout": false,
+    "playerDetected": true,
+    "healthBelow": false,
+    "manaValue": 50,
+    "manaBelow": false
+  },
+  "autoTradeMessage": "BUY MAGIC LEVEL , SKILLS , DAMAGE ",
+  "playerList": {
+    "friendList": [
+
+    ],
+    "highlight": false,
+    "groupMembers": true,
+    "outfits": false,
+    "enemyList": [
+
+    ],
+    "blackList": [
+
+    ],
+    "marks": false
+  },
+  "antiParalyze": "kai",
+  "_icons": {
+    "BUFF": {
+      "y": 0.39105339105339,
+      "enabled": false,
+      "x": 0.83662613981763
+    },
+    "COMBO Kabuto": {
+      "y": 0.38239538239538,
+      "enabled": false,
+      "x": 0.83282674772036
+    },
+    "TRAP": {
+      "y": 0.50937950937951,
+      "enabled": false,
+      "x": 0.82978723404255
+    }
+  },
+  "manaTrain": {
+    "title": "CP%",
+    "min": 1,
+    "text": "chakra down",
+    "max": 99,
+    "on": false
+  },
+  "cooldowns": {
+    "izanagi": {
+      "activeTime": 3099501,
+      "activeCooldown": 20000,
+      "position": {
+        "x": 80,
+        "y": -30
+      },
+      "totalCooldown": 60000,
+      "text": "Izanagi",
+      "totalTime": 3139501
+    },
+    "moku shouheki no jutsu": {
+      "activeTime": 0,
+      "activeCooldown": 5000,
+      "position": {
+        "x": -150,
+        "y": -30
+      },
+      "totalCooldown": 40000,
+      "text": "Trap Target",
+      "totalTime": 0
+    },
+    "kawarimi no jutsu": {
+      "activeTime": 0,
+      "activeCooldown": 10000,
+      "position": {
+        "x": 80,
+        "y": -50
+      },
+      "totalCooldown": 59000,
+      "text": "Kawarimi",
+      "totalTime": 0
+    },
+    "sukunahikona": {
+      "activeTime": 27570871,
+      "activeCooldown": 5000,
+      "position": {
+        "x": 80,
+        "y": -30
+      },
+      "totalCooldown": 70000,
+      "text": "Invisivel",
+      "totalTime": 27635871
+    },
+    "jukai meikai koutan": {
+      "activeTime": 0,
+      "activeCooldown": 4000,
+      "position": {
+        "x": -150,
+        "y": -50
+      },
+      "totalCooldown": 60000,
+      "text": "Trap AREA",
+      "totalTime": 0
+    },
+    "mokuton jukai trap": {
+      "activeTime": 0,
+      "activeCooldown": 5000,
+      "position": {
+        "x": -150,
+        "y": -30
+      },
+      "totalCooldown": 30000,
+      "text": "Trap Target",
+      "totalTime": 0
+    }
+  },
+  "autoHealthItemPanel2": {
+    "min": 0,
+    "max": 60,
+    "enabled": false,
+    "item": 266
+  },
+  "autoHealthItemPanel1": {
+    "min": 1,
+    "max": 96,
+    "enabled": true,
+    "item": 16338
+  },
+  "healing4": {
+    "title": "HP%",
+    "min": 1,
+    "text": "kamui on",
+    "max": 50,
+    "on": false
+  },
+  "healing3": {
+    "title": "HP%",
+    "min": 1,
+    "text": "izanagi",
+    "max": 20,
+    "on": false
+  },
+  "autoManaItemPanel1": {
+    "min": 0,
+    "max": 60,
+    "enabled": false,
+    "item": 268
+  },
+  "hasteSpell": "concentrate chakra feet",
+  "_macros": {
+    "": true,
+    "Spell by Target HP": true,
+    "Imortal": true,
+    "MADARA-": false,
+    "BUFF": true,
+    "COMBO Kabuto": false,
+    "OBITO": true,
+    "COMBO": false,
+    "IMORTAL 40%": true,
+    "Auto Marca Jump": true,
+    "Botoes laterais": true,
+    "Spy Level PGUP/PGDOWN": true,
+    "Enable": false,
+    "Kabuto": false,
+    "Atacar Seguindo": false,
+    "Auto-Escadas 'Espaco' ": true,
+    "Buff": true,
+    "BUFFFULL": false,
+    "HASTE": true,
+    "Jump 'F'": true,
+    "BIG REGENERATION": true,
+    "Trade Seller Msg": false,
+    "Stamina Refill": true,
+    "Combo UP": false,
+    "MANA": false,
+    ".: TREINO ML UP :.": false,
+    ".: TREINO ML :.": false,
+    "Anti Kick": true,
+    "Auto Follow Friend": true,
+    "FUGA": false,
+    "Hold Target [ESC]": true,
+    "Double Buff": false,
+    "Combo": true,
+    "Time Spell": true,
+    "fulga 40%": false,
+    "AREA ": false
+  },
+  "autoHealthPanel1": {
+    "item": 266,
+    "enabled": false,
+    "min": 1,
+    "text": "Big Regeneration",
+    "max": 99
+  },
+  "tcLastExiva": {
+    "timer": 3,
+    "name": ""
+  },
+  "autoParty": {
+    "autoPartyList": [
+
+    ],
+    "onMove": false,
+    "enabled": false,
+    "leaderName": ""
+  },
+  "jumps": {
+    "942,947,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "936,967,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1134,351,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1764,901,9": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "632,1472,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "853,1552,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1141,1160,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1282,1265,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1192,352,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "862,990,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "613,1471,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "769,952,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1068,1584,2": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "1141,1161,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1142,1162,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "846,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1141,1163,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "801,1555,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1821,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "622,1815,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "799,1554,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1806,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "829,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1801,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "827,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "276,1542,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "853,1546,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "852,1547,6": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "2101,1978,9": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "594,1458,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1818,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "678,1414,4": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1816,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "931,948,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1146,1127,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "591,1955,6": {
+      "jumpTo": "jump down",
+      "direction": 3
+    },
+    "541,1949,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "908,952,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "545,1939,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "940,949,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "589,1458,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1196,352,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1051,1581,4": {
+      "jumpTo": "Jump down",
+      "direction": 3
+    },
+    "892,953,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "272,1594,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "837,983,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "742,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1798,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "926,1085,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1053,1581,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "587,1459,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "811,963,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "835,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "607,1474,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1439,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1053,1593,4": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "810,963,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "614,1472,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "831,1838,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "832,1838,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1112,1137,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1014,1143,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "770,984,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "544,1939,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1763,903,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "908,953,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "622,1822,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "834,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1823,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "621,1828,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1230,1192,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "2023,2045,7": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "621,1827,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "830,1857,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "747,988,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "277,1544,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1053,1598,5": {
+      "jumpTo": "Jump down",
+      "direction": 1
+    },
+    "936,947,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1181,358,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "873,965,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "630,1473,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "748,203,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "860,1552,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "834,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "834,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "266,1568,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1053,1600,5": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "1062,1582,2": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "597,1523,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "658,1515,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "678,1415,5": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "599,1434,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "839,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "825,1848,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "2033,2055,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "679,1414,4": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "832,1836,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "2032,2055,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "596,1964,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "679,1415,5": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "826,1846,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "826,1848,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "608,1963,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "596,1962,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "609,1962,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "267,1533,7": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "276,1544,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "277,1539,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "276,1541,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "609,1963,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1112,1139,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "845,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1145,1128,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "908,1035,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "594,1457,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1231,1192,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "617,1446,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1828,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "854,1549,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "621,1830,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1141,1165,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "264,1567,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "240,1521,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1207,1965,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1152,1101,7": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "621,1829,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "266,1567,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1818,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "837,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "935,967,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1275,1264,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "541,1950,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "2022,2046,6": {
+      "jumpTo": "jump down",
+      "direction": 0
+    },
+    "529,312,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1113,1138,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "596,1441,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "277,1543,7": {
+      "jumpTo": "Jump \"up",
+      "direction": 3
+    },
+    "1051,1582,4": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "2022,2045,7": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "588,1459,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "624,1429,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "612,1455,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "334,388,7": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "828,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "832,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "837,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "835,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "827,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "545,1949,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1765,902,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "610,1475,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1764,902,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "269,1595,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "836,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "935,970,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "265,1567,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1192,1104,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1035,1580,4": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "873,963,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "793,982,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "538,1949,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "829,1857,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "545,1944,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "264,1568,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "907,951,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "831,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1139,1114,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1065,1584,2": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "797,965,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "856,950,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1057,1582,4": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "872,988,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "747,200,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "545,1931,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "618,1829,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1182,358,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "854,989,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1142,1165,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "544,1944,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "544,1931,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "757,987,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1169,323,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "590,1459,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "896,956,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "841,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "590,1458,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1800,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "621,1823,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "801,1554,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1824,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "622,1805,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1136,350,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "815,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "613,1469,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "942,946,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "900,964,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "877,472,7": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "742,208,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "544,1946,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1164,354,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "605,1461,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "611,1458,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "784,953,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1825,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "620,1447,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1066,1585,2": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "1067,1585,2": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "1764,903,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "128,911,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1120,1137,7": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "1278,1954,7": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "1068,1582,2": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "1054,1582,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "736,208,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1069,1581,2": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "1168,352,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "851,1543,5": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "851,1547,5": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "851,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "926,1086,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "892,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1191,1104,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "742,209,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "588,1458,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "835,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1764,900,8": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "265,1568,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "740,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "608,1474,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1113,1137,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "128,910,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "2023,2046,6": {
+      "jumpTo": "jump down",
+      "direction": 0
+    },
+    "1112,1138,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1113,1136,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "98,1637,4": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "99,1637,5": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1058,1199,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "613,1959,5": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "595,1964,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "884,1466,3": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "888,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1366,1237,10": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "907,955,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "853,1549,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "544,1940,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "592,1459,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1196,350,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "811,964,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "817,956,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "802,946,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1174,1116,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "819,983,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1273,1197,7": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "859,951,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "532,312,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "269,1596,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "143,910,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1803,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "529,313,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1156,354,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "149,893,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1134,352,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1282,1264,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "834,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1146,360,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "936,948,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "621,1806,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "622,1812,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "912,1618,9": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "853,1547,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "544,1949,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1146,1131,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "867,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "932,947,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1051,1583,4": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "595,1458,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "930,947,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "748,200,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "736,209,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1052,1581,4": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "943,946,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "825,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "854,1546,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "854,1548,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "911,1049,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "747,987,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1168,351,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "29,1007,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1015,1142,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "598,1442,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "605,1460,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1801,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "825,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1165,354,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "826,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "621,1825,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "830,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1811,6": {
+      "jumpTo": "Jump \"down",
+      "direction": 1
+    },
+    "829,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "276,1543,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "827,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "869,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "619,1829,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "79,1642,8": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "1718,486,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "825,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "825,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "847,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "333,388,7": {
+      "jumpTo": "Jump down",
+      "direction": 3
+    },
+    "1053,1591,3": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "750,953,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "598,1441,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1142,361,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "852,1546,6": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1050,1581,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "852,1549,6": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1456,708,8": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "1174,1117,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "752,988,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1810,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "38,1003,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "618,1830,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1138,1114,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "533,310,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "140,1638,7": {
+      "jumpTo": "Jump down",
+      "direction": 3
+    },
+    "878,1454,3": {
+      "jumpTo": "Jump down",
+      "direction": 3
+    },
+    "887,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "837,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "538,1950,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "867,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1807,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1185,356,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "539,1950,7": {
+      "jumpTo": "Jump \"up",
+      "direction": 0
+    },
+    "616,1446,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "620,1829,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "839,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "904,963,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "882,1466,3": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "1145,1131,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1055,1582,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "833,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "830,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "907,1039,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1049,1584,4": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "939,950,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1442,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "596,1963,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1054,1581,4": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "621,1813,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1752,434,3": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1035,1579,4": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "629,1430,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "836,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1812,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "873,1550,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "866,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1275,1265,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1798,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "836,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "532,310,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "545,1940,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1141,1166,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "545,1942,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "883,1459,3": {
+      "jumpTo": "Jump up",
+      "direction": 0
+    },
+    "1059,1201,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "595,1457,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1218,1431,8": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "1142,1163,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "607,1951,6": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "615,1959,5": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "869,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1142,1160,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "30,1008,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1720,484,5": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "277,1542,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "608,1962,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1822,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "241,1521,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "747,203,6": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "816,961,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1168,324,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "821,1551,5": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1030,1109,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1031,1109,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1642,452,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1168,323,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "829,1856,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "621,1803,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1031,1108,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "854,1552,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1139,1113,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "828,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "622,1518,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "600,1564,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "659,1557,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "592,1564,10": {
+      "jumpTo": "jump up",
+      "direction": 1
+    },
+    "745,208,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "621,1557,9": {
+      "jumpTo": "jump down",
+      "direction": 3
+    },
+    "139,1635,6": {
+      "jumpTo": "Jump down",
+      "direction": 0
+    },
+    "598,1522,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "828,1539,7": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "1070,1126,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "616,1513,10": {
+      "jumpTo": "jump up",
+      "direction": 1
+    },
+    "600,1563,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "676,1494,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1101,1119,7": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "1112,1136,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1763,902,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1065,1585,2": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "1754,434,3": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1068,1583,2": {
+      "jumpTo": "Jump down",
+      "direction": 2
+    },
+    "594,1455,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1070,1115,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "622,1811,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "628,1559,8": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "645,1516,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "621,1445,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "629,1512,8": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "592,1441,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "598,1439,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1072,1122,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "592,1442,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "675,1542,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "629,1558,9": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "860,1551,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "630,1512,9": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "640,1527,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "629,1515,8": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "668,1550,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "622,1519,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1072,1118,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "609,1429,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "659,1514,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "599,1564,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "599,1568,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1071,1122,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "629,1513,8": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "591,1459,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "620,1557,10": {
+      "jumpTo": "jump up",
+      "direction": 1
+    },
+    "672,1501,10": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "612,1425,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1102,1119,7": {
+      "jumpTo": "Jump down",
+      "direction": 1
+    },
+    "630,1515,9": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "633,1510,10": {
+      "jumpTo": "jump up",
+      "direction": 2
+    },
+    "597,1522,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "645,1494,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "597,1527,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "829,1855,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "598,1523,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "850,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "825,1846,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "622,1813,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "621,1799,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1641,452,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "856,989,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "908,949,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1152,355,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "597,1521,9": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1068,1585,2": {
+      "jumpTo": "Jump up",
+      "direction": 2
+    },
+    "1071,1116,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "890,952,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1071,1126,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "1071,1118,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1071,1115,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "986,1416,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "621,1826,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "897,956,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "1034,1579,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "913,1046,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "835,1554,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "1213,1961,5": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1030,1108,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "594,1442,7": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "593,1564,9": {
+      "jumpTo": "jump down",
+      "direction": 3
+    },
+    "985,1416,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "630,1513,9": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "675,1541,10": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "875,1453,3": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "640,1500,9": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "830,1856,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "839,1553,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "277,1546,7": {
+      "jumpTo": "jump up",
+      "direction": 3
+    },
+    "264,1534,6": {
+      "jumpTo": "jump down",
+      "direction": 0
+    },
+    "609,1961,4": {
+      "jumpTo": "jump down",
+      "direction": 2
+    },
+    "837,1552,6": {
+      "jumpTo": "jump up",
+      "direction": 0
+    },
+    "37,1003,6": {
+      "jumpTo": "jump down",
+      "direction": 1
+    },
+    "1053,1595,4": {
+      "jumpTo": "Jump up",
+      "direction": 3
+    },
+    "1040,1581,4": {
+      "jumpTo": "Jump up",
+      "direction": 1
+    },
+    "1138,1113,6": {
+      "jumpTo": "jump down",
+      "direction": 2
+    }
+  },
+  "bestHit": 0,
+  "advancedFriendHealer": {
+    "enabled": false,
+    "id": 107,
+    "distance": 8,
+    "customSpell": false,
+    "itemHeal": false,
+    "exuraSio": false,
+    "minFriendHp": 40,
+    "minMana": 60,
+    "customSpellName": ""
+  },
+  "ingame_hotkeys": "UI.Label(\"-- FUNÇOES--\"):setColor('pink')\n\n\n\n\n\n\nmacro(100, \"Botoes laterais\", function()\nif g_mouse.isPressed(7) then\n     say(\"jump down\")\n   end\nif g_mouse.isPressed(8) then\n     say(\"jump up\")\n   end\nend)\n\nmacro(10000, \".: TREINO ML UP :.\", function() \n  say(\"Chakra Down\")\nend)\n\n\n\n\n\n\n\n\n\n\nmacro(100, \"Hold Target [ESC]\", nil, function()\n  if g_game.isAttacking() \nthen\n oldTarget = g_game.getAttackingCreature()\n  end\n  if (oldTarget and oldTarget:getPosition()) \nthen\n if (not g_game.isAttacking() and getDistanceBetween(pos(), oldTarget:getPosition()) <= 8) then\n\nif (oldTarget:getPosition().z == posz()) then\n        g_game.attack(oldTarget)\n      end\n    end\n  end\nend)\n\nonKeyDown(function(keys)\n \nif keys == \"Escape\" then\n    oldTarget = nil\ng_game.cancelAttack()\n  end\nend)\n\n\n\n\n\n\n\nlocal xpbonus = 60*40\nmacro(1000, \"Stamina Refill\", function()\n    if stamina() < xpbonus then\n        useWith((16215), player)\ndelay(200)\n    end\nend)\n\n\n\n\n\n\n\n\n\n\n\nmacro(3000, \".: TREINO ML :.\", function() \n  say(\"Chakra Down\")\nend)\n\nmacro(10000, \"HASTE\", function()\n  say('Chakra Feet')\nend)\n\n\n\nmacro(250, \"Atacar Seguindo\", function()\n   if g_game.isOnline() then\n         g_game.setChaseMode(1)\n           end\n           end)\n\nUI.Label(\"-- BUFF  --\"):setColor('pink')\n\n\nmacro(5000, \"Buff\", function()   say(\"kaenjin\")   say(\"Biju Mode\") end)\n\n\n\n\n\nlocal ch = 'big Regeneration'\nlocal chb = 'Big Regeneration'\nlocal chc = 'big Regeneration'\nlocal hpPercent = 99\nmacro(250, \"BIG REGENERATION\",  function()\n  if (hppercent() <= hpPercent) then\n    say(ch) \n    say(chb)\n    say(chc)\n  end\nend)\n\nUI.Label(\"-- COMO$AREA --\"):setColor('pink')\nmacro(100, \"OBITO\", function()\nif g_game.isAttacking() then\n            say(\"Katon Hosenka no Jutsu\")\n            say(\"Katon Gouka Mekkyaku\")\n            say(\"Katon Karyuu Endan\")\n            say(\"Katon Haijingakure no Jutsu\")\n            say(\"Katon Dai Endan\")\nend\nend)\n\n\nlocal magia5 = 'Katon Hosenka no Jutsu'\nlocal magia4 = 'Katon Gouka Mekkyaku'\nlocal magia3 = 'Katon Karyuu Endan'\nlocal magia2 = 'Katon Haijingakure no Jutsu'\nlocal magia1 = 'Katon Dai Endan'\nlocal magiaDeArea = 'Katon Bakufu Ranbu'\nlocal distance = 1 -- distancia \nlocal amountOfMonsters = 2 -- quantidade de monstro\n\nmacro(100, \"Combo UP\",  function()\n    local specAmount = 0\n    if not g_game.isAttacking() then\n        return\n    end\n    for i,mob in ipairs(getSpectators()) do\n        if (getDistanceBetween(player:getPosition(), mob:getPosition())  <= distance and mob:isMonster())  then\n            specAmount = specAmount + 1\n        end\n    end\n    if (specAmount >= amountOfMonsters) then\n        say(' Katon Bakufu Ranbu')\n    else\n        say(magia1)\n        say(magia2)\n        say(magia3)\n        say(magia4)\n        say(magia5)\n    end\nend)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n------------\nif player:getBlessings() == 0 then\n    say(\"!bless\")\n    schedule(2000, function()\n        if player:getBlessings() == 0 then\n            error(\"!! Blessings not bought !!\")\n        end\n    end)\nend\n----------\nlocal config = { -- higher priority first\n--[index] = {min-hp,\"spell name\"},\n  [1] = {20,\"\"},\n  [2] = {20,\"\"},\n  [3] = {20,\"\"},\n}\nlocal exhausted = 1000\n-- END CONFIG\n\nmacro(100,\"Spell by Target HP\",function()\n  if not g_game.isAttacking() then return end\n  local c = g_game.getAttackingCreature()\n  local hp = c:getHealthPercent()\n  for e, entry in ipairs(config) do\n    if hp <= entry[1] then\n      say(entry[2])\n      delay(exhausted)\n      return\n    end\n  end\nend)\n\n\n\n\n\n\n\n\n\n\n\nmacro(100, \"Imortal\", function()   if hppercent() <= 40 then     say(\"Izanagi\")   end   end)\n\n\nlocal castBelowHp = 40\nmacro(1, \"IMORTAL 40%\",  function()\n  if (hppercent() <= castBelowHp) then\n    say('izanagi')\n  end\nend)\n\n\n\n\n\n\n"
+}
